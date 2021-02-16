@@ -9,8 +9,10 @@
     <color name="white">#FFFFFFFF</color>
 
     <!--    added color-->
-    <color name="chinese_black">#151515</color>
+    <color name="light_black">#151515</color>
     <color name="light_goldenrod_yellow">#fbfcd4</color>
     <color name="golden_yellow">#ffdd03</color>
     <color name="golden_poppy">#fbc403</color>
+    <color name="background_white">#FBFBFB</color>
+    <color name="light_grey">#c7c7c7</color>
 </resources>

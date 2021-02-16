@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Dream Theater</string>
+    <string name="item_movie_text_max_vote">/10</string>
+    <string name="item_movie_text_genre_label">Genre:</string>
+    <string name="item_movie_text_release_label">Release:</string>
+    <string name="main_text_now_showing_label">Now Showing</string>
 </resources>
