@@ -1,10 +1,11 @@
-package com.panjikrisnayasa.movietheaterapp
+package com.panjikrisnayasa.movietheaterapp.view
 
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
+import com.panjikrisnayasa.movietheaterapp.R
 
 class SplashScreenActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

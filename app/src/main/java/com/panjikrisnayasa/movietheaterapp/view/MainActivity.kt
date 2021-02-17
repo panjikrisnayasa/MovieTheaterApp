@@ -1,7 +1,6 @@
-package com.panjikrisnayasa.movietheaterapp
+package com.panjikrisnayasa.movietheaterapp.view
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
@@ -9,6 +8,9 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.panjikrisnayasa.movietheaterapp.viewmodel.MainViewModel
+import com.panjikrisnayasa.movietheaterapp.adapter.MoviesAdapter
+import com.panjikrisnayasa.movietheaterapp.R
 
 class MainActivity : AppCompatActivity() {
 

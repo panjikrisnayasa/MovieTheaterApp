@@ -34,9 +34,9 @@
             android:textAllCaps="true"
             android:textColor="@color/light_black"
             android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/image_item_movie_poster"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             tools:text="Title Goes Here" />
 
         <TextView
@@ -46,7 +46,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="4dp"
             android:drawablePadding="4dp"
-            android:fontFamily="@font/mada_regular"
+            android:fontFamily="@font/mada_medium"
             android:gravity="center"
             android:textColor="@color/light_black"
             android:textSize="18sp"
@@ -67,27 +67,29 @@
             app:layout_constraintTop_toTopOf="@id/text_item_movie_vote_average" />
 
         <TextView
-            android:id="@+id/text_item_movie_genre_label"
+            android:id="@+id/text_item_movie_rating_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:fontFamily="@font/mada_regular"
-            android:text="@string/item_movie_text_genre_label"
+            android:text="@string/item_movie_text_rating_label"
             android:textColor="@color/light_grey"
+            android:textSize="16sp"
             app:layout_constraintStart_toEndOf="@id/image_item_movie_poster"
             app:layout_constraintTop_toBottomOf="@id/text_item_movie_vote_average" />
 
         <TextView
-            android:id="@+id/text_item_movie_genre"
+            android:id="@+id/text_item_movie_rating"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
             android:fontFamily="@font/mada_regular"
             android:textColor="@color/light_black"
-            app:layout_constraintStart_toEndOf="@id/text_item_movie_genre_label"
-            app:layout_constraintTop_toTopOf="@id/text_item_movie_genre_label"
-            tools:text="Action" />
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@id/text_item_movie_rating_label"
+            app:layout_constraintTop_toTopOf="@id/text_item_movie_rating_label"
+            tools:text="Adult or above" />
 
         <TextView
             android:id="@+id/text_item_movie_release_label"
@@ -98,8 +100,9 @@
             android:fontFamily="@font/mada_regular"
             android:text="@string/item_movie_text_release_label"
             android:textColor="@color/light_grey"
+            android:textSize="16sp"
             app:layout_constraintStart_toEndOf="@id/image_item_movie_poster"
-            app:layout_constraintTop_toBottomOf="@id/text_item_movie_genre_label" />
+            app:layout_constraintTop_toBottomOf="@id/text_item_movie_rating_label" />
 
         <TextView
             android:id="@+id/text_item_movie_release"
@@ -108,6 +111,7 @@
             android:layout_marginStart="4dp"
             android:fontFamily="@font/mada_regular"
             android:textColor="@color/light_black"
+            android:textSize="16sp"
             app:layout_constraintStart_toEndOf="@id/text_item_movie_release_label"
             app:layout_constraintTop_toTopOf="@id/text_item_movie_release_label"
             tools:text="17 February 2021" />

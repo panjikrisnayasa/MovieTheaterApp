@@ -1,4 +1,4 @@
-package com.panjikrisnayasa.movietheaterapp
+package com.panjikrisnayasa.movietheaterapp.model
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
@@ -10,6 +10,7 @@ class Movie(
         var title: String? = null,
         var voteAverage: String? = null,
         var voteCount: String? = null,
+        var rating: Boolean? = null,
         var genre: String? = null,
         var release: String? = null,
         var runtime: String? = null,

@@ -1,8 +1,7 @@
-package com.panjikrisnayasa.movietheaterapp
+package com.panjikrisnayasa.movietheaterapp.adapter
 
 import android.content.Context
 import android.content.Intent
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,13 +9,16 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.panjikrisnayasa.movietheaterapp.DetailViewModel.Companion.EXTRA_MOVIE_ID
+import com.panjikrisnayasa.movietheaterapp.R
+import com.panjikrisnayasa.movietheaterapp.model.Movie
+import com.panjikrisnayasa.movietheaterapp.view.DetailActivity
+import com.panjikrisnayasa.movietheaterapp.view.DetailActivity.Companion.EXTRA_MOVIE
 
 class MoviesAdapter(private val context: Context) :
     RecyclerView.Adapter<MoviesAdapter.MoviesViewHolder>() {
 
     companion object {
-        const val POSTER_URL = "https://image.tmdb.org/t/p/w185"
+        const val POSTER_URL = "https://image.tmdb.org/t/p/w500"
     }
 
     private val mData = ArrayList<Movie>()
@@ -24,12 +26,12 @@ class MoviesAdapter(private val context: Context) :
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): MoviesAdapter.MoviesViewHolder {
+    ): MoviesViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_movie, parent, false)
         return MoviesViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: MoviesAdapter.MoviesViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: MoviesViewHolder, position: Int) {
         holder.bind(mData[position])
     }
 
@@ -41,9 +43,9 @@ class MoviesAdapter(private val context: Context) :
         notifyDataSetChanged()
     }
 
-    private fun moveToDetail(movieId: String?) {
+    private fun moveToDetail(movie: Movie) {
         val detailIntent = Intent(context, DetailActivity::class.java)
-        detailIntent.putExtra(EXTRA_MOVIE_ID, movieId)
+        detailIntent.putExtra(EXTRA_MOVIE, movie)
         context.startActivity(detailIntent)
     }
 
@@ -52,7 +54,7 @@ class MoviesAdapter(private val context: Context) :
             with(itemView) {
                 val poster: ImageView = findViewById(R.id.image_item_movie_poster)
                 val title: TextView = findViewById(R.id.text_item_movie_title)
-                val genre: TextView = findViewById(R.id.text_item_movie_genre)
+                val rating: TextView = findViewById(R.id.text_item_movie_rating)
                 val release: TextView = findViewById(R.id.text_item_movie_release)
                 val voteAverage: TextView = findViewById(R.id.text_item_movie_vote_average)
                 poster.clipToOutline = true
@@ -60,14 +62,21 @@ class MoviesAdapter(private val context: Context) :
                 val posterUrl = POSTER_URL + movie.poster
                 Glide.with(context).load(posterUrl).into(poster)
                 title.text = movie.title
-                genre.text = movie.genre
+
+                val tRating = movie.rating
+                if (tRating != null) {
+                    if (tRating) {
+                        rating.text = context.getString(R.string.main_text_adult_or_above)
+                    } else {
+                        rating.text = context.getString(R.string.main_text_all_ages)
+                    }
+                }
+
                 release.text = movie.release
                 voteAverage.text = movie.voteAverage
 
                 itemView.setOnClickListener {
-                    Log.d("hyp", "itemView tapped")
-                    Log.d("hyp", "movie.id = ${movie.id}")
-                    moveToDetail(movie.id)
+                    moveToDetail(movie)
                 }
             }
         }

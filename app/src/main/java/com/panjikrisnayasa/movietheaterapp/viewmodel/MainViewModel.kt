@@ -1,11 +1,11 @@
-package com.panjikrisnayasa.movietheaterapp
+package com.panjikrisnayasa.movietheaterapp.viewmodel
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.loopj.android.http.AsyncHttpClient
 import com.loopj.android.http.AsyncHttpResponseHandler
+import com.panjikrisnayasa.movietheaterapp.model.Movie
 import cz.msebera.android.httpclient.Header
 import org.json.JSONObject
 
@@ -44,8 +44,7 @@ class MainViewModel : ViewModel() {
                         movie.title = tMovie.getString("title")
                         movie.voteAverage = tMovie.getDouble("vote_average").toString()
                         movie.release = tMovie.getString("release_date")
-
-//                        val tGenre = tMovie.getJSONArray("genre_ids").getJSONObject(0)
+                        movie.rating = tMovie.getBoolean("adult")
 
                         listItems.add(movie)
                     }
