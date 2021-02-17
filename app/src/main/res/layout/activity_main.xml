@@ -47,6 +47,7 @@
             android:layout_marginTop="24dp"
             android:fontFamily="@font/mada_bold"
             android:text="@string/main_text_now_showing_label"
+            android:textAllCaps="true"
             android:textColor="@color/light_black"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -56,13 +57,24 @@
             android:id="@+id/recycler_main_movies"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:clipToPadding="true"
-            android:paddingTop="16dp"
+            android:layout_marginTop="4dp"
+            android:clipToPadding="false"
+            android:paddingTop="4dp"
+            android:paddingBottom="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/text_main_now_showing"
             tools:listitem="@layout/item_movie" />
+
+        <ProgressBar
+            android:id="@+id/progress_main"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
