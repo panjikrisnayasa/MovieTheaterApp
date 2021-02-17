@@ -4,4 +4,6 @@
     <string name="item_movie_text_genre_label">Genre:</string>
     <string name="item_movie_text_release_label">Release:</string>
     <string name="main_text_now_showing_label">Now Showing</string>
+    <string name="detail_text_runtime_label">Runtime:</string>
+    <string name="detail_text_production_label">Production:</string>
 </resources>
