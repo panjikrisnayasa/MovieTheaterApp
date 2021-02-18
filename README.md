@@ -8,5 +8,5 @@ This app consists of 2 features, namely:
 1. Displays the movies list
 2. Displays the details of the movie
 
-### Link for UI/UX Design using Adobe XD: 
+### UI/UX Design link for MovieTheaterApp using Adobe XD: 
 https://xd.adobe.com/view/0c184f8b-18fe-4d03-7ab2-179c36417279-7a29/?fullscreen
