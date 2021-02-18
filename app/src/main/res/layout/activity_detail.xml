@@ -74,17 +74,16 @@
                 android:layout_marginStart="8dp"
                 android:fontFamily="@font/mada_regular"
                 android:textColor="@color/light_grey"
-                android:textSize="20sp"
+                android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="@id/text_detail_vote_average"
                 app:layout_constraintStart_toEndOf="@id/text_detail_max_vote"
-                app:layout_constraintTop_toTopOf="@id/text_detail_vote_average"
                 tools:text="(999 votes)" />
 
             <TextView
                 android:id="@+id/text_detail_rating_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="16dp"
                 android:fontFamily="@font/mada_regular"
                 android:text="@string/item_movie_text_rating_label"
                 android:textColor="@color/light_grey"
