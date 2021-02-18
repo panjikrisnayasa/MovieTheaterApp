@@ -10,3 +10,6 @@ This app consists of 2 features, namely:
 
 ### UI/UX Design link for MovieTheaterApp using Adobe XD: 
 https://xd.adobe.com/view/0c184f8b-18fe-4d03-7ab2-179c36417279-7a29/?fullscreen
+
+### Download APK here:
+https://drive.google.com/file/d/1esKvfoXmqZFqDpPdFjCgIkT8zZoFf3dL/view?usp=sharing
