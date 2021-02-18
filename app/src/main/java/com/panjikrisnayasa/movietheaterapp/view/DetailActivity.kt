@@ -9,10 +9,12 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
-import com.panjikrisnayasa.movietheaterapp.viewmodel.DetailViewModel
-import com.panjikrisnayasa.movietheaterapp.model.Movie
-import com.panjikrisnayasa.movietheaterapp.adapter.MoviesAdapter
 import com.panjikrisnayasa.movietheaterapp.R
+import com.panjikrisnayasa.movietheaterapp.adapter.MoviesAdapter
+import com.panjikrisnayasa.movietheaterapp.model.Movie
+import com.panjikrisnayasa.movietheaterapp.viewmodel.DetailViewModel
+import java.text.SimpleDateFormat
+import java.util.*
 
 class DetailActivity : AppCompatActivity() {
 
@@ -31,6 +33,7 @@ class DetailActivity : AppCompatActivity() {
     private lateinit var mOverview: TextView
     private lateinit var mRating: TextView
     private lateinit var mProgressBar: ProgressBar
+    private lateinit var mViewBackground: View
     private lateinit var mViewModel: DetailViewModel
     private var mMovie: Movie? = null
 
@@ -41,6 +44,7 @@ class DetailActivity : AppCompatActivity() {
         mMovie = intent?.getParcelableExtra(EXTRA_MOVIE)
 
         findView()
+        showLoading(true)
         setUpToolbar()
         setUpViewModel()
         showDetailMovie()
@@ -60,9 +64,11 @@ class DetailActivity : AppCompatActivity() {
 
     private fun showLoading(state: Boolean) {
         if (state) {
+            mViewBackground.visibility = View.VISIBLE
             mProgressBar.visibility = View.VISIBLE
         } else {
             mProgressBar.visibility = View.GONE
+            mViewBackground.visibility = View.GONE
         }
     }
 
@@ -85,7 +91,7 @@ class DetailActivity : AppCompatActivity() {
         mOverview = findViewById(R.id.text_detail_overview)
         mRating = findViewById(R.id.text_detail_rating)
         mProgressBar = findViewById(R.id.progress_detail)
-
+        mViewBackground = findViewById(R.id.view_detail_background)
     }
 
     private fun showDetailMovie() {
@@ -102,7 +108,7 @@ class DetailActivity : AppCompatActivity() {
                     mVoteAverage.text = it.voteAverage
                     mVoteCount.text = String.format("(%s votes)", it.voteCount)
                     mGenre.text = it.genre
-                    mRelease.text = it.release
+                    mRelease.text = changeDateFormat(it.release)
                     mRuntime.text = String.format("%s minutes", it.runtime)
                     mProduction.text = it.production
                     mOverview.text = it.overview
@@ -119,5 +125,16 @@ class DetailActivity : AppCompatActivity() {
                 }
             })
         }
+    }
+
+    private fun changeDateFormat(date: String?): String? {
+        if (date != null) {
+            val inputFormat = SimpleDateFormat("yyyy-MM-dd", Locale.US)
+            val outputFormat = SimpleDateFormat("d MMM yyyy", Locale.US)
+            val tDate = inputFormat.parse(date)
+            if (tDate != null)
+                return outputFormat.format(tDate)
+        }
+        return null
     }
 }

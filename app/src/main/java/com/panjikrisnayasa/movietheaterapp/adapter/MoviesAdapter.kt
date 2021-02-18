@@ -13,6 +13,9 @@ import com.panjikrisnayasa.movietheaterapp.R
 import com.panjikrisnayasa.movietheaterapp.model.Movie
 import com.panjikrisnayasa.movietheaterapp.view.DetailActivity
 import com.panjikrisnayasa.movietheaterapp.view.DetailActivity.Companion.EXTRA_MOVIE
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 class MoviesAdapter(private val context: Context) :
     RecyclerView.Adapter<MoviesAdapter.MoviesViewHolder>() {
@@ -49,6 +52,17 @@ class MoviesAdapter(private val context: Context) :
         context.startActivity(detailIntent)
     }
 
+    private fun changeDateFormat(date: String?): String? {
+        if (date != null) {
+            val inputFormat = SimpleDateFormat("yyyy-MM-dd", Locale.US)
+            val outputFormat = SimpleDateFormat("d MMM yyyy", Locale.US)
+            val tDate = inputFormat.parse(date)
+            if (tDate != null)
+                return outputFormat.format(tDate)
+        }
+        return null
+    }
+
     inner class MoviesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(movie: Movie) {
             with(itemView) {
@@ -72,7 +86,7 @@ class MoviesAdapter(private val context: Context) :
                     }
                 }
 
-                release.text = movie.release
+                release.text = changeDateFormat(movie.release)
                 voteAverage.text = movie.voteAverage
 
                 itemView.setOnClickListener {

@@ -9,4 +9,5 @@
     <string name="main_text_adult_or_above">Adult or above</string>
     <string name="main_text_all_ages">All ages</string>
     <string name="detail_text_genre_label">Genre:</string>
+    <string name="detail_text_overview_label">Overview</string>
 </resources>
